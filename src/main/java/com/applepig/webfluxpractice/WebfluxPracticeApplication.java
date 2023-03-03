@@ -1,0 +1,13 @@
+package com.applepig.webfluxpractice;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class WebfluxPracticeApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(WebfluxPracticeApplication.class, args);
+	}
+
+}
