@@ -29,34 +29,6 @@ public class SampleController {
         System.out.println("person after sleep");
         return new Person(38,"applepig");
     }
-    @GetMapping("/get")
-    private Mono<Person> get() throws InterruptedException{   
-        System.out.println("get begin");
-        Mono<Person> result = WebClient.create("http://localhost:8080").get().uri("/person").retrieve().bodyToMono(Person.class);
-        System.out.println("get end");
-        return result;
-    }
-
-    @GetMapping("/get2")
-    private Person get2() throws InterruptedException{   
-        System.out.println("get2 begin");
-        Mono<Person> result = WebClient.create("http://localhost:8080").get().uri("/person").retrieve().bodyToMono(Person.class);
-        System.out.println("get2 end");
-        return Person.builder().age(20).name("default").build();
-    }
-
-    @GetMapping("/exp/flux")
-    private Flux<Person> expFlux() throws InterruptedException{   
-        System.out.println("expFlux begin");
-        Flux<Person> result = 
-            WebClient.create("http://localhost:8080")
-                    .get()
-                    .uri("/person/flux")
-                    .retrieve()
-                    .bodyToFlux(Person.class);
-        System.out.println("expFlux end");
-        return result;
-    }
     @GetMapping("/person/flux")
     private Flux<Person> personFlux() throws InterruptedException{   
         System.out.println("personFlux begin");
